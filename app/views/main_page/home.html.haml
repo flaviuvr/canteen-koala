@@ -1,0 +1,102 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "UTF-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %link{:href => "https://fonts.gstatic.com", :rel => "preconnect"}/
+    %link{:href => "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,700;0,900;1,300;1,500&display=swap", :rel => "stylesheet"}/
+    %title Canteen Koala
+  %body
+    .top-section
+      %nav.navbar
+        .left-nav
+          Canteen Koala
+        .right-nav
+          %div Home
+          .separator
+            |
+          %div About
+          .separator
+            |
+          %div Service
+          .separator
+            |
+          %div Blog
+          .separator
+            |
+          %div Contact
+      .banner
+        .main-text
+          Order some
+          %span.highlight delicious
+          food
+        .middle
+          %img.slashes{:alt => "slashes", :src => "./assets/lines-backward-05.png"}/
+          %img.icon{:alt => "icon", :src => "./assets/koala-06.png"}/
+          %img.slashes{:alt => "slashes", :src => "./assets/lines-forward-05.png"}/
+        .secondary-text
+          Your favourite dishes are waiting for you. We are now bringing our exeplary customer service to your
+          doorstep with our new delivery system. We strive to bring joy to your houses, as soon as possible.
+    .background
+      %img{:alt => "background-image", :src => "./assets/back.jpeg"}/
+    .middle-section
+      .middle-elements
+        .left-middle
+          .category-select
+            %select.selection{:name => "Category"}
+              %option{:value => "category"} CATEGORY
+              %option{:value => "entrees"} Entrees
+              %option{:value => "salads"} Salads
+              %option{:value => "main-courses"} Main
+              %option{:value => "breakfast"} Breakfast
+              %option{:value => "dessert"} Dessert
+            %span.category-arrow-block
+            %span.category-arrow
+          .sorting-select
+            %select.selection{:name => "Sorting"}
+              %option{:value => "category"} SORTING
+              %option{:value => "price"} Price
+              %option{:value => "quantity"} Quantity
+              %option{:value => "delivery"} Delivery
+            %span.sorting-arrow-block
+            %span.sorting-arrow
+          .vegetarian-select
+            %select.selection{:name => "Vegetarian"}
+              %option{:value => "vegetarian"} VEGETARIAN
+              %option{:value => "yes"} Yes
+              %option{:value => "no"} No
+            %span.vegetarian-arrow-block
+            %span.vegetarian-arrow
+        .right-middle
+          %label{:for => "slider"} PRICE
+          %span 0$
+          %input#slider{:max => "200", :min => "0", :name => "slider", :step => "10", :type => "range", :value => "150"}/
+          %span#upper-bound 150$
+    #food-dishes
+      .card
+        %img{:alt => "", :src => "./assets/burger.png"}/
+        .title Burger
+        .category Burger
+        .price Burger
+      .card
+        %img{:alt => "", :src => "assets/pizza.png"}/
+        .title Pizza
+        .category Pizza
+        .price Pizza
+      #add-card.card
+        #add-display
+          %img{:alt => "add-image", :src => "./assets/add.png"}/
+          .title Add a new dish
+        #add-form
+          %form{:action => "submit"}
+            %div Enter Image Name:
+            %input#input-image-dish.dish-input{:type => "text"}/
+            %div Enter Title:
+            %input#input-title-dish.dish-input{:type => "text"}/
+            %div Enter Category:
+            %input#input-category-dish.dish-input{:type => "text"}/
+            %div Enter Price:
+            %input#input-price-dish.dish-input{:type => "text"}/
+            .submit-button
+              %input{:type => "button", :value => "Submit"}/
