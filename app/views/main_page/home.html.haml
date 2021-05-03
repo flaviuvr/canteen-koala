@@ -36,7 +36,7 @@
           %img.icon{:alt => "icon", :src => "./assets/koala-06.png"}/
           %img.slashes{:alt => "slashes", :src => "./assets/lines-forward-05.png"}/
         .secondary-text
-          Your favourite dishes are waiting for you. We are now bringing our exeplary customer service to your
+          Your favourite dishes are waiting for you. We are now bringing our exemplary customer service to your
           doorstep with our new delivery system. We strive to bring joy to your houses, as soon as possible.
     .background
       %img{:alt => "background-image", :src => "./assets/back.jpeg"}/
@@ -74,29 +74,18 @@
           %input#slider{:max => "200", :min => "0", :name => "slider", :step => "10", :type => "range", :value => "150"}/
           %span#upper-bound 150$
     #food-dishes
+      - @products.reverse.each do |product|
+        .card
+          = image_tag product.image
+          .title= product.title
+          .category= product.description
+          .price= product.price
+          = link_to 'Știi bancu cu radiera?', product, method: :delete, data: { confirm: 'Șterge-o' }
+          = link_to 'Show', product
+          = link_to 'Edit', edit_product_path(product)
       .card
-        %img{:alt => "", :src => "./assets/burger.png"}/
-        .title Burger
-        .category Burger
-        .price Burger
-      .card
-        %img{:alt => "", :src => "assets/pizza.png"}/
-        .title Pizza
-        .category Pizza
-        .price Pizza
-      #add-card.card
-        #add-display
-          %img{:alt => "add-image", :src => "./assets/add.png"}/
-          .title Add a new dish
-        #add-form
-          %form{:action => "submit"}
-            %div Enter Image Name:
-            %input#input-image-dish.dish-input{:type => "text"}/
-            %div Enter Title:
-            %input#input-title-dish.dish-input{:type => "text"}/
-            %div Enter Category:
-            %input#input-category-dish.dish-input{:type => "text"}/
-            %div Enter Price:
-            %input#input-price-dish.dish-input{:type => "text"}/
-            .submit-button
-              %input{:type => "button", :value => "Submit"}/
+        %a{:href => new_product_path}
+          #add-display
+            .image
+              %img{:alt => "add-image", :src => "./assets/add.png"}/
+            .title Add a new dish
