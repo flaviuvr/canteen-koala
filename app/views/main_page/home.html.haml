@@ -76,16 +76,16 @@
     #food-dishes
       - @products.reverse.each do |product|
         .card
-          = image_tag product.image
-          .title= product.title
-          .category= product.description
-          .price= product.price
-          = link_to 'Știi bancu cu radiera?', product, method: :delete, data: { confirm: 'Șterge-o' }
-          = link_to 'Show', product
-          = link_to 'Edit', edit_product_path(product)
+          %a.itemContent{:href => product_path(product)}
+            = image_tag product.image
+            .title= product.title
+            .category= product.description
+            .price= product.price
+          .itemActions
+            .button= link_to 'Edit', edit_product_path(product)
+            .button= link_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure you want to remove this item?' }
       .card
-        %a{:href => new_product_path}
-          #add-display
-            .image
-              %img{:alt => "add-image", :src => "./assets/add.png"}/
-            .title Add a new dish
+        %a.addCard{:href => new_product_path}
+          .image
+            %img{:alt => "add-image", :src => "./assets/add.png"}/
+          .title Add a new dish
