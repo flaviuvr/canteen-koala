@@ -32,9 +32,12 @@
           %span.highlight delicious
           food
         .middle
-          %img.slashes{:alt => "slashes", :src => "./assets/lines-backward-05.png"}/
-          %img.icon{:alt => "icon", :src => "./assets/koala-06.png"}/
-          %img.slashes{:alt => "slashes", :src => "./assets/lines-forward-05.png"}/
+          = image_tag 'lines-backward-05.png', alt: 'slashes', class: 'slashes'
+          = image_tag 'koala-06.png', alt: 'icon', class: 'icon'
+          = image_tag 'lines-forward-05.png', alt: 'slashes', class: 'slashes'
+          -#%img.slashes{:alt => "slashes", :src => "./assets/lines-backward-05.png"}/
+          -#%img.icon{:alt => "icon", :src => "./assets/koala-06.png"}/
+          -#%img.slashes{:alt => "slashes", :src => "./assets/lines-forward-05.png"}/
         .secondary-text
           Your favourite dishes are waiting for you. We are now bringing our exemplary customer service to your
           doorstep with our new delivery system. We strive to bring joy to your houses, as soon as possible.
@@ -87,5 +90,5 @@
       .card
         %a.addCard{:href => new_product_path}
           .image
-            %img{:alt => "add-image", :src => "./assets/add.png"}/
+            = image_tag 'add.png', alt: 'add-image'
           .title Add a new dish
