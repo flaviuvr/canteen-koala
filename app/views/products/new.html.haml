@@ -1,0 +1,10 @@
+!!!
+%body.newBody
+  %img.coverImg{:alt => "background-image", :src => "/assets/kitchen.jpeg"}/
+  .contentForm
+    %p
+      %span.firstWord Canteen
+      %span.secondWord Koala
+    %h1 Add a new product
+    = render 'form', product: @product
+    = link_to 'Back', root_path

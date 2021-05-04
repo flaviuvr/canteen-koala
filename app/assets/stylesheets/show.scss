@@ -1,0 +1,86 @@
+$font-stack: Poppins, sans-serif;
+$light-color: #fbfef9;
+$primary-color: #1b2021;
+$secondary-color: #656a77;
+$accent-color: #be0d5d;
+
+.showBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleLogo {
+  margin-top: 30px;
+  color: $primary-color;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.5em;
+  .secondWord {
+    color: $accent-color;
+  }
+}
+
+.itemContents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .itemImage {
+    margin-top: 30px;
+
+    img{
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px 5px #c0c0c0;
+      margin-bottom: 25px;
+      pointer-events: none;
+    }
+  }
+
+  .title {
+    color: $primary-color;
+    font-size: 2em;
+    font-weight: 700;
+    pointer-events: none;
+  }
+
+  .category {
+    color: $secondary-color;
+    font-size: 1.5em;
+    font-weight: 500;
+    pointer-events: none;
+  }
+
+  .price {
+    color: $accent-color;
+    font-size: 1.7em;
+    pointer-events: none;
+  }
+}
+
+.itemButtons {
+  width: 55%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px auto auto;
+
+  a {
+    color: $primary-color;
+    text-decoration: none;
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    width: 70px;
+    padding: 5px;
+    border: 0.13em $accent-color solid ;
+    border-radius: 0.3em;
+  }
+}

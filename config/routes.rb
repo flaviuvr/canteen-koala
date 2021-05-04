@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'main_page/home'
+  resources :products
+  get 'products', to: 'main_page#index'
+  root 'main_page#home'
 end

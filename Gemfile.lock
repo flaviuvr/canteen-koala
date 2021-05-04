@@ -98,6 +98,9 @@ GEM
     guard-minitest (2.4.6)
       guard-compat (~> 1.2)
       minitest (>= 3.0)
+    haml (5.2.1)
+      temple (>= 0.8.0)
+      tilt
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.0)
@@ -206,6 +209,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
+    temple (0.8.2)
     thor (1.1.0)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -243,6 +247,7 @@ DEPENDENCIES
   capybara (= 3.35.3)
   guard (= 2.16.2)
   guard-minitest (= 2.4.6)
+  haml
   jbuilder (= 2.10.0)
   listen (= 3.4.1)
   minitest (= 5.11.3)
