@@ -19,19 +19,23 @@ class ProductsController < ApplicationController
     @product.image.attach(product_params[:image])
 
     respond_to do |format|
-      return format.html { redirect_to root_path, notice: 'Product was successfully added!' } if @product.save
-
-      format.html { render :new }
-      format.json { render json: @product.errors, status: :unprocessable_entity }
+      if @product.save
+        format.html { redirect_to root_path, notice: 'Product was successfully added!' }
+      else
+        format.html { render :new }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def update
     respond_to do |format|
-      return format.html { redirect_to @product, notice: 'Product was successfully updated!' } if @product.update(product_params)
-
-      format.html { render :edit }
-      format.json { render json: @product.errors, status: :unprocessable_entity }
+      if @product.update(product_params)
+        format.html { redirect_to @product, notice: 'Product was successfully updated!' }
+      else
+        format.html { render :edit }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
     end
   end
 
