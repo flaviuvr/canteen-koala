@@ -250,7 +250,7 @@ DEPENDENCIES
   capybara (= 3.35.3)
   guard (= 2.16.2)
   guard-minitest (= 2.4.6)
-  haml
+  haml (~> 5.2, >= 5.2.1)
   jbuilder (= 2.10.0)
   listen (= 3.4.1)
   minitest (= 5.11.3)
