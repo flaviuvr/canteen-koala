@@ -13,19 +13,25 @@
         .left-nav
           Canteen Koala
         .right-nav
-          %div Home
+          .page-button= link_to 'Home', '#'
           .separator
             |
-          %div About
+          .page-button= link_to 'About', '#'
           .separator
             |
-          %div Service
-          .separator
-            |
-          %div Blog
-          .separator
-            |
-          %div Contact
+          - if logged_in?
+            .page-button= link_to 'Cart', '#'
+            .separator
+              |
+            .page-button= link_to 'Account', current_user
+            .separator
+              |
+            .page-button= link_to "Log Out", logout_path, method: :delete
+          -else
+            .page-button= link_to 'Sign up', signup_path
+            .separator
+              |
+            .page-button= link_to 'Log In', login_path
       .banner
         .main-text
           Order some
@@ -76,16 +82,18 @@
     #food-dishes
       - @products.reverse.each do |product|
         .card
-          %a.itemContent{:href => product_path(product)}
+          %a.item-content{:href => product_path(product)}
             = image_tag product.image
             .title= product.title
             .category= product.description
             .price= product.price
-          .itemActions
-            .button= link_to 'Edit', edit_product_path(product)
-            .button= link_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure you want to remove this item?' }
+          .item-actions
+            - if logged_in?
+              .button= link_to 'Add to cart', '#'
+            - else
+              .button= link_to 'Add to cart', login_path
       .card
-        %a.addCard{:href => new_product_path}
+        %a.add-card{:href => new_product_path}
           .image
             = image_tag 'add.png', alt: 'add-image'
           .title Add a new dish

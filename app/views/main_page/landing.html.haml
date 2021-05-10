@@ -1,3 +1,8 @@
-.button= link_to 'Products Page', main_page_home_path
-.button= link_to 'Sign up', signup_path
-.button= link_to 'Log In', '#'
+- if logged_in?
+  %h1 Hello #{ @current_user.name }
+.button= link_to 'Explore Products', main_page_home_path
+- if logged_in?
+  .button= link_to 'Log Out', logout_path, method: :delete
+-else
+  .button= link_to 'Sign up', signup_path
+  .button= link_to 'Log In', login_path

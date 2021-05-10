@@ -4,7 +4,7 @@ $primary-color: #1b2021;
 $secondary-color: #656a77;
 $accent-color: #be0d5d;
 
-.editBody {
+.edit-body {
   height: 100vh;
   display: flex;
   flex-direction: row;
@@ -13,12 +13,12 @@ $accent-color: #be0d5d;
   font: 100% $font-stack;
 }
 
-.coverImg {
+.cover-img {
   width: 50%;
   object-fit: cover;
 }
 
-.contentForm {
+.content-form {
   width: 50%;
   margin: auto;
 
@@ -31,7 +31,7 @@ $accent-color: #be0d5d;
   p {
     text-align: center;
     font-size: 1.5em;
-    .secondWord {
+    .second-word {
       color: $accent-color;
     }
   }
