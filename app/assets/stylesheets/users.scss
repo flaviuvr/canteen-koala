@@ -1,3 +1,55 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+$font-stack: Poppins, sans-serif;
+$light-color: #fbfef9;
+$primary-color: #1b2021;
+$secondary-color: #656a77;
+$accent-color: #be0d5d;
+
+.user-form-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+
+  .user-form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+
+    .field {
+      input {
+        width: 100%;
+        border-color: $primary-color;
+        border-radius: 3px;
+        height: 2.2em;
+
+        &:focus {
+          border-color: $accent-color;
+          border-radius: 0px;
+          border-style: solid;
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .cover-img {
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+.user-show-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  margin: auto;
+
+  .button {
+    width: 130px;
+  }
+}

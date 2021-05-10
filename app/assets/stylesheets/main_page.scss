@@ -381,6 +381,14 @@ body {
       color: $accent-color;
       text-decoration: none;
     }
+
+    .cart-button {
+      background-color: $accent-color;
+      border-radius: 0.3em;
+      a {
+        color: $light-color;
+      }
+    }
   }
 
   .add-card {
@@ -392,5 +400,40 @@ body {
     .title {
       color: $accent-color;
     }
+  }
+}
+
+.landing-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+
+  .cover-img {
+    object-fit: cover;
+    height: 100vh;
+    width: 65%;
+  }
+
+  .landing-content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title-logo {
+    margin-bottom: 30px;
+  }
+
+  .explore-btn {
+    width: 180px;
+    margin-top: 20px;
+  }
+
+  .button {
+    margin-bottom: 20px;
   }
 }

@@ -91,7 +91,7 @@
             - if logged_in?
               .button= link_to 'Add to cart', '#'
             - else
-              .button= link_to 'Add to cart', login_path
+              .button.cart-button= link_to 'Add to cart', login_path
       .card
         %a.add-card{:href => new_product_path}
           .image
