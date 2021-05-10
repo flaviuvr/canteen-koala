@@ -89,7 +89,7 @@
             .price= product.price
           .item-actions
             - if logged_in?
-              .button= link_to 'Add to cart', '#'
+              .button.cart-button= link_to 'Add to cart', '#'
             - else
               .button.cart-button= link_to 'Add to cart', login_path
       .card
