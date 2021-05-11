@@ -11,6 +11,10 @@
       .field
         = form.label :password
         = form.password_field :password
+      .field
+        .checkbox
+          = form.check_box :remember_me
+          Remember me on this computer
       .actions
         = form.submit "Log In"
     .button= link_to 'Back', root_path
