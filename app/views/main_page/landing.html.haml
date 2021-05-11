@@ -6,7 +6,7 @@
     %h3 Enjoy delicious food from the finest restaurants.
     - if logged_in?
       %h1 Hello #{ @current_user.name }
-    .button.explore-btn= link_to 'Explore Products', main_page_home_path
+    .button.explore-btn= link_to 'Explore Products', '/home'
     - if logged_in?
       .button= link_to 'Log Out', logout_path, method: :delete
     -else
