@@ -1,15 +1,24 @@
 %body.landing-body
   .landing-content
-    %a.title-logo{:href => root_path}
-      %span.first-word Canteen
-      %span.second-word Koala
+    .title-logo
+      = link_to root_path do
+        %span.first-word
+          Canteen
+        %span.second-word
+          Koala
     %h3 Enjoy delicious food from the finest restaurants.
     - if logged_in?
       %h1 Hello #{ @current_user.name }
-    .button.explore-btn= link_to 'Explore Products', '/home'
+    .button.explore-btn
+      = link_to 'Explore Products', '/home'
+
     - if logged_in?
-      .button= link_to 'Log Out', logout_path, method: :delete
+      .button
+        = link_to 'Log Out', logout_path, method: :delete
     -else
-      .button= link_to 'Sign up', signup_path
-      .button= link_to 'Log In', login_path
+      .button
+        = link_to 'Sign up', signup_path
+      .button
+        = link_to 'Log In', login_path
+
   = image_tag 'landing-back.jpg', alt: 'cover-image', class: 'cover-img'

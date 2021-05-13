@@ -2,9 +2,13 @@
 %body.edit-body
   = image_tag 'kitchen.jpg', alt: 'background-image', class: 'cover-img'
   .content-form
-    %p
-      %span.first-word Canteen
-      %span.second-word Koala
+    .title-logo
+      = link_to '/home' do
+        %span.first-word
+          Canteen
+        %span.second-word
+          Koala
     %h1 Edit an existing product
-    = render 'form', product: @product
-    = link_to 'Back', @product
+    .actions
+      = render 'form', product: @product
+      = link_to 'Back', @product

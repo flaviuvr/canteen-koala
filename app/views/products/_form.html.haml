@@ -1,4 +1,5 @@
 = form_with(model: product) do |form|
+
   - if product.errors.any? do
     #error_explanation
       %h2
@@ -7,6 +8,7 @@
       %ul
         - product.errors.each do |error|
           %li= error.full_message
+
   .field
     = form.label :title
     = form.text_field :title

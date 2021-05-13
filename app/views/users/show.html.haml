@@ -1,9 +1,13 @@
 %body.user-show-body
-  %a.title-logo{:href => '/home'}
-    %span.first-word Canteen
-    %span.second-word Koala
+  .title-logo
+    = link_to '/home' do
+      %span.first-word
+        Canteen
+      %span.second-word
+        Koala
   %h2 Account details
   %p Name: #{@user.name}
   %p Email: #{@user.email}
   .user-actions
-    .button= link_to "Reset password", '#'
+    .button
+      = link_to "Reset password", '#'

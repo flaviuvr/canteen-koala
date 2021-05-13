@@ -319,10 +319,12 @@ body {
     }
 
     .item-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
     }
 
     .item-actions {
@@ -385,6 +387,7 @@ body {
     .cart-button {
       background-color: $accent-color;
       border-radius: 0.3em;
+
       a {
         color: $light-color;
       }
@@ -392,10 +395,12 @@ body {
   }
 
   .add-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
     .title {
       color: $accent-color;
