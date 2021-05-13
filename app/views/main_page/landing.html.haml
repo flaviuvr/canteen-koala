@@ -11,6 +11,7 @@
       %h1 Hello #{ @current_user.name }
     .button.explore-btn
       = link_to 'Explore Products', main_page_home_path
+
     - if logged_in?
       .button
         = link_to 'Log Out', logout_path, method: :delete
@@ -19,4 +20,5 @@
         = link_to 'Sign up', signup_path
       .button
         = link_to 'Log In', login_path
+
   = image_tag 'landing-back.jpg', alt: 'cover-image', class: 'cover-img'

@@ -21,6 +21,7 @@
             = link_to 'About', '#'
           .separator
             |
+
           - if logged_in?
             .page-button
               = link_to 'Cart', '#'
@@ -39,6 +40,7 @@
               |
             .page-button
               = link_to 'Log In', login_path
+
       .banner
         .main-text
           Order some
@@ -91,21 +93,28 @@
       - @products.reverse.each do |product|
         .card
           .item-content
+
             = link_to product_path(product) do
               = image_tag product.image
+
               .title
                 = product.title
+
               .category
                 = product.description
+
               .price
                 = product.price
+
           .item-actions
+
             - if logged_in?
               .button.cart-button
                 = link_to 'Add to cart', '#'
             - else
               .button.cart-button
                 = link_to 'Add to cart', login_path
+
       .card
         .add-card
           = link_to new_product_path do

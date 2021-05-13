@@ -8,10 +8,13 @@
   .item-contents
     .item-image
       = image_tag @product.image
+
     .title
       = @product.title
+
     .category
       = @product.description
+
     .price
       = @product.price
   .item-buttons
@@ -22,6 +25,7 @@
     .button
       = link_to 'Back', main_page_home_path
   .cart-button
+
     - if logged_in?
       .button
         = link_to 'Add to cart', '#'
