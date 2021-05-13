@@ -13,29 +13,37 @@
         .left-nav
           Canteen Koala
         .right-nav
-          .page-button= link_to 'Home', '#'
+          .page-button
+            = link_to 'Home', '#'
           .separator
             |
-          .page-button= link_to 'About', '#'
+          .page-button
+            = link_to 'About', '#'
           .separator
             |
           - if logged_in?
-            .page-button= link_to 'Cart', '#'
+            .page-button
+              = link_to 'Cart', '#'
             .separator
               |
-            .page-button= link_to 'Account', current_user
+            .page-button
+              = link_to 'Account', current_user
             .separator
               |
-            .page-button= link_to "Log Out", logout_path, method: :delete
+            .page-button
+              = link_to "Log Out", logout_path, method: :delete
           -else
-            .page-button= link_to 'Sign up', signup_path
+            .page-button
+              = link_to 'Sign up', signup_path
             .separator
               |
-            .page-button= link_to 'Log In', login_path
+            .page-button
+              = link_to 'Log In', login_path
       .banner
         .main-text
           Order some
-          %span.highlight delicious
+          %span.highlight
+            delicious
           food
         .middle
           = image_tag 'lines-backward-05.png', alt: 'slashes', class: 'slashes'
@@ -84,16 +92,22 @@
         .card
           %a.item-content{:href => product_path(product)}
             = image_tag product.image
-            .title= product.title
-            .category= product.description
-            .price= product.price
+            .title
+              = product.title
+            .category
+              = product.description
+            .price
+              = product.price
           .item-actions
             - if logged_in?
-              .button.cart-button= link_to 'Add to cart', '#'
+              .button.cart-button
+                = link_to 'Add to cart', '#'
             - else
-              .button.cart-button= link_to 'Add to cart', login_path
+              .button.cart-button
+                = link_to 'Add to cart', login_path
       .card
         %a.add-card{:href => new_product_path}
           .image
             = image_tag 'add.png', alt: 'add-image'
-          .title Add a new dish
+          .title
+            Add a new dish

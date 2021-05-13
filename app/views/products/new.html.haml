@@ -3,8 +3,10 @@
   = image_tag 'kitchen.jpg', alt: 'background-image', class: 'cover-img'
   .content-form
     %p
-      %span.first-word Canteen
-      %span.second-word Koala
+      %span.first-word
+        Canteen
+      %span.second-word
+        Koala
     %h1 Add a new product
     = render 'form', product: @product
     = link_to 'Back', main_page_home_path
