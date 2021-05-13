@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+
     redirect_to '/home'
   end
 
@@ -42,6 +43,30 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     redirect_to root_path
+  end
+
+  def add_to_cart
+    if session[:cart][params[:id]].nil?
+      session[:cart][params[:id]] = 1
+    else
+      session[:cart][params[:id]] += 1
+    end
+
+    redirect_to cart_path
+  end
+
+  def remove_from_cart
+    if session[:cart][params[:id]] == 1
+      session[:cart].delete(params[:id])
+    else
+      session[:cart][params[:id]] -= 1
+    end
+
+    redirect_to cart_path
+  end
+
+  def remove_cart_items
+    session[:cart] = {}
   end
 
   private

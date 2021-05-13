@@ -1,0 +1,12 @@
+- @cart.each do |item, quantity|
+  = item
+  = quantity
+  = link_to "Remove this item", remove_from_cart_product_path(item), method: :delete
+  %br
+
+
+-# = link_to "Remove all items", remove_cart_items(@cart), method: :delete
+
+= @price
+= session[:cart]
+= @cart

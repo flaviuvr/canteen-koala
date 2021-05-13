@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   get 'sessions/new'
   root 'main_page#landing'
-  resources :products
+  resources :products, only: %i[index new show edit] do
+    post :add_to_cart, on: :member
+    delete :remove_from_cart, on: :member
+    put :remove_cart_items, on: :member
+  end
   resources :users
 
   get '/signup', to: 'users#new'
@@ -11,4 +15,6 @@ Rails.application.routes.draw do
 
   get '/', to: 'main_page#landing'
   get '/home', to: 'main_page#home'
+
+  get '/cart', to: 'carts#index'
 end
