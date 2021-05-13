@@ -1,10 +1,11 @@
 %body.user-form-body
   .user-form-content
-    %a.title-logo{:href => root_path}
-      %span.first-word
-        Canteen
-      %span.second-word
-        Koala
+    .title-logo
+      = link_to root_path do
+        %span.first-word
+          Canteen
+        %span.second-word
+          Koala
     %h1 Log in
     = form_with(url: login_path, scope: :session, local: true) do |form|
       .field

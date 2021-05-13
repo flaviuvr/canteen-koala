@@ -90,14 +90,15 @@
     #food-dishes
       - @products.reverse.each do |product|
         .card
-          %a.item-content{:href => product_path(product)}
-            = image_tag product.image
-            .title
-              = product.title
-            .category
-              = product.description
-            .price
-              = product.price
+          .item-content
+            = link_to product_path(product) do
+              = image_tag product.image
+              .title
+                = product.title
+              .category
+                = product.description
+              .price
+                = product.price
           .item-actions
             - if logged_in?
               .button.cart-button
@@ -106,8 +107,9 @@
               .button.cart-button
                 = link_to 'Add to cart', login_path
       .card
-        %a.add-card{:href => new_product_path}
-          .image
-            = image_tag 'add.png', alt: 'add-image'
-          .title
-            Add a new dish
+        .add-card
+          = link_to new_product_path do
+            .image
+              = image_tag 'add.png', alt: 'add-image'
+            .title
+              Add a new dish

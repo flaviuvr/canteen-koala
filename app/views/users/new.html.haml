@@ -1,10 +1,11 @@
 %body.user-form-body
   .user-form-content
-    %a.title-logo{:href => root_path}
-      %span.first-word
-        Canteen
-      %span.second-word
-        Koala
+    .title-logo
+      = link_to root_path do
+        %span.first-word
+          Canteen
+        %span.second-word
+          Koala
     %h2 Join the best food delivery service in town
     = form_with(model: @user) do |form|
       - if @user.errors.any? do

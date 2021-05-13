@@ -28,11 +28,15 @@ $accent-color: #be0d5d;
     margin-bottom: 1.5em;
   }
 
-  p {
-    text-align: center;
-    font-size: 1.5em;
-    .second-word {
-      color: $accent-color;
+  .title-logo {
+    a {
+      text-align: center;
+      font-size: 1.5em;
+
+      .second-word {
+        color: $accent-color;
+      }
+
     }
   }
 
@@ -49,15 +53,17 @@ $accent-color: #be0d5d;
     }
   }
 
-  a {
-    display: flex;
-    justify-content: center;
-    width: 70px;
-    margin: auto;
-    padding: 2px;
-    border: 0.13em $accent-color solid;
-    border-radius: 0.3em;
-    text-decoration: none;
-    color: $primary-color;
+  .actions {
+    a {
+      display: flex;
+      justify-content: center;
+      width: 70px;
+      margin: auto;
+      padding: 2px;
+      border: 0.13em $accent-color solid;
+      border-radius: 0.3em;
+      text-decoration: none;
+      color: $primary-color;
+    }
   }
 }
