@@ -8,6 +8,6 @@ local:
 
 cloudinary:
   service: Cloudinary
-  cloud_name: <%= Rails.application.credentials.dig(:cloudinary, :cloud_name) %>
-  api_key: <%= Rails.application.credentials.dig(:cloudinary, :api_key) %>
-  api_secret: <%= Rails.application.credentials.dig(:cloudinary, :api_secret) %>
+  cloud_name: <%= ENV['CLOUD_NAME'] %>
+  api_key: <%= ENV['API_Key'] %>
+  api_secret: <%= ENV['API_SECRET'] %>
