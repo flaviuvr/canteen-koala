@@ -7,7 +7,7 @@
         Koala
   .item-contents
     .item-image
-      = image_tag @product.image
+      = cl_image_tag @product.image.key
 
     .title
       = @product.title
