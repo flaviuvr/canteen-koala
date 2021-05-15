@@ -1,12 +1,33 @@
-- @cart.each do |item, quantity|
-  = item
-  = quantity
-  = link_to "Remove this item", remove_from_cart_product_path(item), method: :delete
-  %br
+%body.cart-body
+  .title-logo
+    = link_to '/home' do
+      %span.first-word
+        Canteen
+      %span.second-word
+        Koala
+  %h2.cart-title
+    Welcome to your cart
+  .cart-list
+    - @cart.each do |index, product|
+      .cart-item
+        = cl_image_tag product['image_key']
+        .item-details
+          .item-data
+            .item-title
+              = product['title']
+            .item-quantity
+              x
+              = product['quantity']
+          .item-actions
+            - if product['quantity'] > 1
+              = link_to "Remove one instance", remove_single_item_from_cart_product_path(index), method: :delete
+              = link_to "Remove product", remove_product_from_cart_product_path(index), method: :delete
+            - else
+              = link_to "Remove product", remove_product_from_cart_product_path(index), method: :delete
 
-
--# = link_to "Remove all items", remove_cart_items(@cart), method: :delete
-
-= @price
-= session[:cart]
-= @cart
+  -# = link_to "Remove all items", remove_cart_items, method: :post
+  %h2.total
+    Total:
+    .price
+      = @price
+      $

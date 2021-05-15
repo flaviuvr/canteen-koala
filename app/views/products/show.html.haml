@@ -28,7 +28,7 @@
 
     - if logged_in?
       .button
-        = link_to 'Add to cart', '#'
+        = link_to 'Add to cart', add_to_cart_product_path(@product.id), method: :post
     - else
       .button
         = link_to 'Add to cart', login_path

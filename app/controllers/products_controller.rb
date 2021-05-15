@@ -1,8 +1,9 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: %i[show edit update destroy]
 
   def index
     @products = Product.all
+    @cart = session[:cart]
 
     redirect_to '/home'
   end
@@ -46,28 +47,38 @@ class ProductsController < ApplicationController
   end
 
   def add_to_cart
+    product = Product.find(params[:id])
     if session[:cart][params[:id]].nil?
-      session[:cart][params[:id]] = 1
+      session[:cart][params[:id]] = { title: product.title, image_key: product.image.key, quantity: 1 }
     else
-      session[:cart][params[:id]] += 1
+      session[:cart][params[:id]]['quantity'] += 1
     end
 
     redirect_to cart_path
   end
 
-  def remove_from_cart
-    if session[:cart][params[:id]] == 1
-      session[:cart].delete(params[:id])
+  def remove_single_item_from_cart
+    if session[:cart][params[:id]]['quantity'] == 1
+      remove_product_from_cart
     else
-      session[:cart][params[:id]] -= 1
+      session[:cart][params[:id]]['quantity'] -= 1
+
+      redirect_to cart_path
     end
+
+  end
+
+  def remove_product_from_cart
+    session[:cart].delete(params[:id])
 
     redirect_to cart_path
   end
 
-  def remove_cart_items
-    session[:cart] = {}
-  end
+  # def remove_cart_items
+  #   session[:cart].keys.each do |item|
+  #     remove_product_from_cart
+  #   end
+  # end
 
   private
 

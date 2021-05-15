@@ -1,7 +1,8 @@
 module SessionsHelper
   def log_in(user)
     session[:user_id] = user.id
-    @cart = session[:cart] = {}
+    session[:cart] = {}
+    @cart = session[:cart]
   end
 
   def remember(user)
