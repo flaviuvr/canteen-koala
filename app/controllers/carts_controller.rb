@@ -14,6 +14,7 @@ class CartsController < ApplicationController
       product = Product.find(index)
       price += product.price * item['quantity']
     end
+    price
   end
 
   def remove_cart_items

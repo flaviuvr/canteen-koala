@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get '/', to: 'main_page#landing'
   get '/home', to: 'main_page#home', as: '/home'
 
   get '/cart', to: 'carts#index'
