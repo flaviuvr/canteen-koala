@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   get '/home', to: 'main_page#home'
 
   get '/cart', to: 'carts#index'
-  post '/cart', to: 'carts#remove_cart_items'
+  post '/cart', to: 'carts#remove_cart_items', as: '/remove_cart'
 end

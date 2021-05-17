@@ -74,11 +74,9 @@ class ProductsController < ApplicationController
     redirect_to cart_path
   end
 
-  # def remove_cart_items
-  #   session[:cart].keys.each do |item|
-  #     remove_product_from_cart
-  #   end
-  # end
+  def remove_cart_items
+    session[:cart] = {}
+  end
 
   private
 

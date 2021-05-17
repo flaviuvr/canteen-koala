@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   def index
-    redirect_to root_path unless current_user
+    redirect_to root_path unless logged_in?
 
     @cart = session[:cart]
     @price = update_price
@@ -18,6 +18,8 @@ class CartsController < ApplicationController
   end
 
   def remove_cart_items
-    @cart = {}
+    session[:cart] = {}
+
+    redirect_to cart_path
   end
 end
