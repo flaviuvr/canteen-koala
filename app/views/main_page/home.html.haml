@@ -14,7 +14,7 @@
           Canteen Koala
         .right-nav
           .page-button
-            = link_to 'Home', '#'
+            = link_to 'Home', home_path
           .separator
             |
           .page-button
@@ -24,7 +24,7 @@
 
           - if logged_in?
             .page-button
-              = link_to 'Cart', '/cart'
+              = link_to 'Cart', cart_path
             .separator
               |
             .page-button

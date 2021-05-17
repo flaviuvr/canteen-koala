@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get '/', to: 'main_page#landing'
-  get '/home', to: 'main_page#home'
+  get '/home', to: 'main_page#home', as: '/home'
 
   get '/cart', to: 'carts#index'
   post '/cart', to: 'carts#remove_cart_items', as: '/remove_cart'

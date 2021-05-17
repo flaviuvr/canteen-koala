@@ -10,11 +10,10 @@ class CartsController < ApplicationController
     price = 0
     return price if @cart.nil?
 
-    @cart&.each do |index, item|
+    @cart.each do |index, item|
       product = Product.find(index)
       price += product.price * item['quantity']
     end
-    price
   end
 
   def remove_cart_items
