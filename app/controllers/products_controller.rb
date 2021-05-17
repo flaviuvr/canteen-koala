@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
     @products = Product.all
     @cart = session[:cart]
 
-    redirect_to '/home'
+    redirect_to home_path
   end
 
   def new
@@ -43,7 +43,8 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to '/home'
+
+    redirect_to home_path
   end
 
   def add_to_cart

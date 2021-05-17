@@ -20,12 +20,12 @@
               = product['quantity']
           .item-actions
             - if product['quantity'] > 1
-              = link_to "Remove one instance", remove_single_item_from_cart_product_path(index), method: :delete
-              = link_to "Remove product", remove_product_from_cart_product_path(index), method: :delete
+              = link_to 'Remove one instance', remove_single_item_from_cart_product_path(index), method: :delete
+              = link_to 'Remove product', remove_product_from_cart_product_path(index), method: :delete
             - else
-              = link_to "Remove product", remove_product_from_cart_product_path(index), method: :delete
+              = link_to 'Remove product', remove_product_from_cart_product_path(index), method: :delete
 
-  = link_to "Remove all items", remove_cart_path, method: :post
+  = link_to 'Remove all items', remove_cart_path, method: :post
   %h2.total
     Total:
     .price
