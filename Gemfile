@@ -6,6 +6,8 @@ ruby '3.0.0'
 gem 'rails',      '6.1.3.1'
 gem 'bcrypt', '3.1.13'
 gem 'puma',       '5.2.2'
+gem 'cloudinary', '~> 1.20'
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 gem 'sass-rails', '6.0.0'
 gem 'webpacker',  '5.2.1'
 gem 'turbolinks', '5.2.1'
@@ -16,6 +18,7 @@ gem 'haml', '~> 5.2', '>= 5.2.1'
 group :development, :test do
   gem 'sqlite3', '1.4.2'
   gem 'byebug',  '11.1.3', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
 end
 
 group :development do
