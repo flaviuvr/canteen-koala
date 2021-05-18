@@ -27,9 +27,20 @@ $accent-color: #be0d5d;
 
         &:focus {
           border-color: $accent-color;
-          border-radius: 0px;
+          border-radius: 0;
           border-style: solid;
           outline: none;
+        }
+      }
+
+      .checkbox {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        input {
+          margin-left: 0;
+          width: 1.2em;
         }
       }
     }

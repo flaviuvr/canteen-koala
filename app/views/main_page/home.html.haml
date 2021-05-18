@@ -14,7 +14,7 @@
           Canteen Koala
         .right-nav
           .page-button
-            = link_to 'Home', '#'
+            = link_to 'Home', home_path
           .separator
             |
           .page-button
@@ -24,7 +24,7 @@
 
           - if logged_in?
             .page-button
-              = link_to 'Cart', '#'
+              = link_to 'Cart', carts_path
             .separator
               |
             .page-button
@@ -95,7 +95,7 @@
           .item-content
 
             = link_to product_path(product) do
-              = image_tag product.image
+              = cl_image_tag product.image.key
 
               .title
                 = product.title
@@ -105,12 +105,13 @@
 
               .price
                 = product.price
+                $
 
           .item-actions
 
             - if logged_in?
               .button.cart-button
-                = link_to 'Add to cart', '#'
+                = link_to 'Add to cart', add_to_cart_product_path(product.id), method: :post
             - else
               .button.cart-button
                 = link_to 'Add to cart', login_path

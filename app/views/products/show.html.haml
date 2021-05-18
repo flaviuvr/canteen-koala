@@ -1,13 +1,13 @@
 %body.product-show-body
   .title-logo
-    = link_to '/home' do
+    = link_to home_path do
       %span.first-word
         Canteen
       %span.second-word
         Koala
   .item-contents
     .item-image
-      = image_tag @product.image
+      = cl_image_tag @product.image.key
 
     .title
       = @product.title
@@ -20,15 +20,17 @@
   .item-buttons
     .button
       = link_to 'Edit', edit_product_path(@product)
+
     .button
       = link_to 'Delete', @product, method: :delete, data: { confirm: 'Are you sure you want to remove this item?' }
+
     .button
-      = link_to 'Back', main_page_home_path
+      = link_to 'Back', '/home'
   .cart-button
 
     - if logged_in?
       .button
-        = link_to 'Add to cart', '#'
+        = link_to 'Add to cart', add_to_cart_product_path(@product.id), method: :post
     - else
       .button
         = link_to 'Add to cart', login_path

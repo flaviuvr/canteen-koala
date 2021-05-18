@@ -1,16 +1,23 @@
 Rails.application.routes.draw do
   get 'sessions/new'
   root 'main_page#landing'
-  get 'main_page/home'
-  get 'main_page/landing'
-  resources :products
-  resources :users
 
+  resources :products, only: %i[index new show edit create update destroy] do
+    post :add_to_cart, on: :member
+    delete :remove_single_item_from_cart, on: :member
+    delete :remove_product_from_cart, on: :member
+  end
+
+  resources :users
   get '/signup', to: 'users#new'
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get '/landing', to: 'main_page#landing'
-  get '/home', to: 'main_page#home'
+  get '/home', to: 'main_page#home', as: '/home'
+
+  resources :carts, only: :index do
+    post :remove_cart_items, on: :collection
+  end
 end
