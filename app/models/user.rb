@@ -50,7 +50,7 @@ class User < ApplicationRecord
   end
 
   def send_activation_email
-    UserMailer.account_activation(self ).deliver_now
+    UserMailer.account_activation(self).deliver_now
   end
 
   private
@@ -61,6 +61,6 @@ class User < ApplicationRecord
 
   def create_activation_digest
     self.activation_token = User.new_token
-    self.activation_token = User.digest(activation_token)
+    self.activation_digest = User.digest(activation_token)
   end
 end
