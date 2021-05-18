@@ -1,0 +1,7 @@
+.account-activation-body
+  %h1
+    Hello,
+    = @user.name
+  %h3
+    Welcome to Canteen Koala! Click on the link below to activate your account:
+  = link_to 'Click Here!', edit_account_activation_url(@user.activation_token, email: @user.email)

@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   resources :carts, only: :index do
     post :remove_cart_items, on: :collection
   end
+
+  resources :account_activations, only: [:edit]
 end
