@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    redirect_to root_path
+    redirect_to '/home'
   end
 
   def new

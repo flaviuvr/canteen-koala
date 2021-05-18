@@ -1,0 +1,13 @@
+%body.user-show-body
+  .title-logo
+    = link_to '/home' do
+      %span.first-word
+        Canteen
+      %span.second-word
+        Koala
+  %h2 Account details
+  %p Name: #{@user.name}
+  %p Email: #{@user.email}
+  .user-actions
+    .button
+      = link_to "Reset password", '#'

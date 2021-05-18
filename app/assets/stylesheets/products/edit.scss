@@ -1,0 +1,69 @@
+$font-stack: Poppins, sans-serif;
+$light-color: #fbfef9;
+$primary-color: #1b2021;
+$secondary-color: #656a77;
+$accent-color: #be0d5d;
+
+.edit-body {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  font: 100% $font-stack;
+}
+
+.cover-img {
+  width: 50%;
+  object-fit: cover;
+}
+
+.content-form {
+  width: 50%;
+  margin: auto;
+
+  h1 {
+    text-align: center;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+  }
+
+  .title-logo {
+    a {
+      text-align: center;
+      font-size: 1.5em;
+
+      .second-word {
+        color: $accent-color;
+      }
+
+    }
+  }
+
+  input[type="text"] {
+    border-color: $primary-color;
+    border-radius: 3px;
+    height: 2.2em;
+
+    &:focus {
+      border-color: $accent-color;
+      border-radius: 0px;
+      border-style: solid;
+      outline: none;
+    }
+  }
+
+  .actions {
+    a {
+      display: flex;
+      justify-content: center;
+      width: 70px;
+      margin: auto;
+      padding: 2px;
+      border: 0.13em $accent-color solid;
+      border-radius: 0.3em;
+      text-decoration: none;
+      color: $primary-color;
+    }
+  }
+}

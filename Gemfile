@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.0'
 
 gem 'rails',      '6.1.3.1'
+gem 'bcrypt', '3.1.13'
 gem 'puma',       '5.2.2'
 gem 'sass-rails', '6.0.0'
 gem 'webpacker',  '5.2.1'
@@ -33,7 +34,7 @@ group :test do
   gem 'minitest-reporters',       '1.3.8'
   gem 'guard',                    '2.16.2'
   gem 'guard-minitest',           '2.4.6'
-  gem 'rexml'
+  gem 'rexml', '~> 3.2', '>= 3.2.5'
 end
 
 group :production do

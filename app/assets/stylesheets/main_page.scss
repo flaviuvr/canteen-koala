@@ -40,6 +40,13 @@ body {
     width: 500px;
     justify-content: space-between;
 
+    .page-button {
+      a {
+        color: $light-color;
+        text-decoration: none;
+      }
+    }
+
     .separator {
       font-weight: 700;
       color: $accent-color;
@@ -311,14 +318,16 @@ body {
       overflow: visible;
     }
 
-    .itemContent {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    .item-content {
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
     }
 
-    .itemActions {
+    .item-actions {
       width: 95%;
       display: flex;
       flex-direction: row;
@@ -334,9 +343,9 @@ body {
       .button {
         display: flex;
         justify-content: center;
-        width: 70px;
+        width: 100px;
         padding: 5px;
-        border: 0.13em $accent-color solid ;
+        border: 0.13em $accent-color solid;
         border-radius: 0.3em;
       }
     }
@@ -374,16 +383,62 @@ body {
       color: $accent-color;
       text-decoration: none;
     }
+
+    .cart-button {
+      background-color: $accent-color;
+      border-radius: 0.3em;
+
+      a {
+        color: $light-color;
+      }
+    }
   }
 
-  .addCard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  .add-card {
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
     .title {
       color: $accent-color;
     }
+  }
+}
+
+.landing-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+
+  .cover-img {
+    object-fit: cover;
+    height: 100vh;
+    width: 65%;
+  }
+
+  .landing-content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title-logo {
+    margin-bottom: 30px;
+  }
+
+  .explore-btn {
+    width: 180px;
+    margin-top: 20px;
+  }
+
+  .button {
+    margin-bottom: 20px;
   }
 }

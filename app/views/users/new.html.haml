@@ -1,0 +1,40 @@
+%body.user-form-body
+  .user-form-content
+    .title-logo
+      = link_to root_path do
+        %span.first-word
+          Canteen
+        %span.second-word
+          Koala
+    %h2 Join the best food delivery service in town
+    = form_with(model: @user) do |form|
+      - if @user.errors.any? do
+        #error_explanation
+          %h2
+            = pluralize(@user.errors.count, 'error')
+              Sign up unsuccessful:
+          %ul
+            - @user.errors.each do |error|
+              %li= error.full_message
+
+      .field
+        = form.label :name
+        = form.text_field :name
+
+      .field
+        = form.label :email
+        = form.text_field :email
+
+      .field
+        = form.label :password
+        = form.password_field :password
+
+      .field
+        = form.label :password_confirmation
+        = form.password_field :password_confirmation
+
+      .actions
+        = form.submit
+    .button
+      = link_to 'Back', root_path
+  = image_tag 'form-back.jpg', alt: 'cover-image', class: 'cover-img'
