@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get '/home', to: 'main_page#home', as: '/home'
 
-  get '/cart', to: 'carts#index'
-  post '/cart', to: 'carts#remove_cart_items', as: '/remove_cart'
+  resources :carts, only: :index do
+    post :remove_cart_items, on: :collection
+  end
 end

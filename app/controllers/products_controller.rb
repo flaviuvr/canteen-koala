@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
       session[:cart][params[:id]]['quantity'] += 1
     end
 
-    redirect_to cart_path
+    redirect_to carts_path
   end
 
   def remove_single_item_from_cart
@@ -64,7 +64,7 @@ class ProductsController < ApplicationController
     else
       session[:cart][params[:id]]['quantity'] -= 1
 
-      redirect_to cart_path
+      redirect_to carts_path
     end
 
   end
@@ -72,11 +72,7 @@ class ProductsController < ApplicationController
   def remove_product_from_cart
     session[:cart].delete(params[:id])
 
-    redirect_to cart_path
-  end
-
-  def remove_cart_items
-    session[:cart] = {}
+    redirect_to carts_path
   end
 
   private

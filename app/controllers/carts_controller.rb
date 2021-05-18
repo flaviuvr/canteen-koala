@@ -20,6 +20,6 @@ class CartsController < ApplicationController
   def remove_cart_items
     session[:cart] = {}
 
-    redirect_to cart_path
+    redirect_to carts_path
   end
 end
