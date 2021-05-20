@@ -1,7 +1,19 @@
 $accent-color: #be0d5d;
 
-.password-forgot {
-  a {
-    color: $accent-color
+.user-form-body {
+  .password-forgot {
+    a {
+      color: $accent-color
+    }
+  }
+  .button {
+    align-self: center;
+
+    &:hover {
+      input {
+        cursor: pointer;
+      }
+    }
   }
 }
+
