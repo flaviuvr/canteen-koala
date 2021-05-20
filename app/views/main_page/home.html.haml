@@ -108,13 +108,8 @@
                 $
 
           .item-actions
-
-            - if logged_in?
-              .button.cart-button
-                = link_to 'Add to cart', add_to_cart_product_path(product.id), method: :post
-            - else
-              .button.cart-button
-                = link_to 'Add to cart', login_path
+            .button.cart-button
+              = link_to 'Add to cart', add_to_cart_product_path(product.id), method: :post
 
       .card
         .add-card

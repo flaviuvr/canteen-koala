@@ -48,6 +48,11 @@ class ProductsController < ApplicationController
   end
 
   def add_to_cart
+    unless logged_in?
+      redirect_to login_path
+      return
+    end
+
     product = Product.find(params[:id])
     if session[:cart][params[:id]].nil?
       session[:cart][params[:id]] = { title: product.title, image_key: product.image.key, quantity: 1 }
