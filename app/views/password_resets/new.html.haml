@@ -1,12 +1,18 @@
-%h1 Forgot password
-- flash.each do |type, msg|
-  = msg
+%body.password-reset-body
+  .title-logo
+    = link_to root_path do
+      %span.first-word
+        Canteen
+      %span.second-word
+        Koala
 
-= form_with(url: password_resets_path, scope: :password_reset, local: true) do |form|
-  = form.label 'Enter your email'
-  = form.email_field :email
+  %h1 Forgot password
+  - flash.each do |type, msg|
+    = msg
 
-  = form.submit 'Submit'
-
-.button
-  = link_to 'Back', root_path
+  = form_with(url: password_resets_path, scope: :password_reset, local: true) do |form|
+    .field
+      = form.label 'Enter your email'
+      = form.email_field :email
+    .button
+      = form.submit 'Submit'

@@ -94,4 +94,10 @@ a {
   padding: 5px;
   border: 0.13em $accent-color solid;
   border-radius: 0.3em;
+
+  input {
+    background-color: $light-color;
+    border: none;
+    font: 100% $font-stack;
+  }
 }
