@@ -27,10 +27,4 @@ class SessionsController < ApplicationController
 
     redirect_to root_url
   end
-
-  def add_product(product)
-    add_to_cart(product.name)
-
-    redirect_to home_path
-  end
 end
