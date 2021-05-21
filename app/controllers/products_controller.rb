@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
+  before_action :check_logged_user, only: :add_to_cart
 
   def index
     @products = Product.all
@@ -48,11 +49,6 @@ class ProductsController < ApplicationController
   end
 
   def add_to_cart
-    unless logged_in?
-      redirect_to login_path
-      return
-    end
-
     product = Product.find(params[:id])
     if session[:cart][params[:id]].nil?
       session[:cart][params[:id]] = { title: product.title, image_key: product.image.key, quantity: 1 }
