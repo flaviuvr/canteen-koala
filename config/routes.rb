@@ -23,6 +23,6 @@ Rails.application.routes.draw do
     post :remove_cart_items, on: :collection
   end
 
-  resources :account_activations, only: [:edit]
-  resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :account_activations, only: :edit
+  resources :password_resets, only: %i[new create edit update]
 end
