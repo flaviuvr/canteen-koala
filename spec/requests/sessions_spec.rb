@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Sessions', type: :request do
+RSpec.describe SessionsController, type: :request do
 
   describe 'POST sessions#create' do
     let!(:user) { User.create(name: 'User Test', email: 'user@test.com', password: 'testinguser', password_confirmation: 'testinguser') }

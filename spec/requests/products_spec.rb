@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Products', type: :request do
+RSpec.describe ProductsController, type: :request do
 
   describe 'POST products#add_to_cart' do
     let!(:product) { Product.create(title: 'Product', description: 'Details', price: 2) }
