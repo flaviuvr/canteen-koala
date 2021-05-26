@@ -8,4 +8,18 @@ $accent-color: #be0d5d;
   height: 100vh;
   display: flex;
   flex-direction: row;
+
+  .field {
+    margin-bottom: 0.7rem;
+  }
+
+  .button {
+    align-self: center;
+
+    &:hover {
+      input {
+        cursor: pointer;
+      }
+    }
+  }
 }

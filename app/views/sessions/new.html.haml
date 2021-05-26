@@ -14,16 +14,18 @@
       .field
         = form.label :email
         = form.text_field :email
+        .password-forgot
+          = link_to 'Forgot password?', new_password_reset_path
 
       .field
         = form.label :password
         = form.password_field :password
+
       .field
         .checkbox
           = form.check_box :remember_me
           Remember me on this computer
-      .actions
+
+      .button
         = form.submit 'Log In'
-    .button
-      = link_to 'Back', root_path
   = image_tag 'form-back.jpg', alt: 'cover-image', class: 'cover-img'

@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
+  before_action :check_logged_user, only: :add_to_cart
 
   def index
     @products = Product.all

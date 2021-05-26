@@ -4,12 +4,18 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user&.authenticate(params[:session][:password])
-      reset_session
-      log_in user
-      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      session[:session_token] = user.session_token
+      if user.activated?
+        reset_session
+        log_in user
+        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+        session[:session_token] = user.session_token
 
-      redirect_to user
+        redirect_to user
+      else
+        flash[:warning] = 'Account not activated. Please check your email for the activation link.'
+
+        redirect_to root_path
+      end
     else
       flash.now[:danger] = 'Invalid user/password combination. Try again'
       render 'new'
@@ -18,11 +24,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    redirect_to root_url
-  end
 
-  def add_product(product)
-    add_to_cart(product.name)
-    redirect_to '/home'
+    redirect_to root_url
   end
 end

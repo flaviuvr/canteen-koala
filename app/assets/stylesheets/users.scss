@@ -50,6 +50,17 @@ $accent-color: #be0d5d;
     height: 100vh;
     overflow: hidden;
   }
+
+  .button {
+    margin-top: 1rem;
+    align-self: center;
+
+    &:hover {
+      input {
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 .user-show-body {

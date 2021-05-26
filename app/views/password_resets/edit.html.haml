@@ -1,0 +1,34 @@
+%body.password-reset-body
+  .title-logo
+    = link_to root_path do
+      %span.first-word
+        Canteen
+      %span.second-word
+        Koala
+
+  %h1 Reset password
+  - flash.each do |type, msg|
+    = msg
+
+  = form_with(model: @user, url: password_reset_path(params[:id]), local: true) do |form|
+    - if @user.errors.any? do
+      #error_explanation
+        %h2
+          = pluralize(product.errors.count, 'error')
+            Cannot update password:
+        %ul
+          - product.errors.each do |error|
+            %li= error.full_message
+
+    = hidden_field_tag(:email, @user.email)
+
+    .field
+      = form.label :password
+      = form.password_field :password
+
+    .field
+      = form.label :password_confirmation
+      = form.password_field :password_confirmation
+
+    .button
+      = form.submit 'Submit'

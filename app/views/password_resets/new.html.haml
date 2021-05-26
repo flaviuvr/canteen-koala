@@ -1,0 +1,18 @@
+%body.password-reset-body
+  .title-logo
+    = link_to root_path do
+      %span.first-word
+        Canteen
+      %span.second-word
+        Koala
+
+  %h1 Forgot password
+  - flash.each do |type, msg|
+    = msg
+
+  = form_with(url: password_resets_path, scope: :password_reset, local: true) do |form|
+    .field
+      = form.label 'Enter your email'
+      = form.email_field :email
+    .button
+      = form.submit 'Submit'
