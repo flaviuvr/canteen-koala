@@ -49,7 +49,6 @@ class ProductsController < ApplicationController
   end
 
   def add_to_cart
-    find_current_cart
     item = @current_cart.cart_items.find_by(product_id: params[:id])
     if item.nil?
       @current_cart.cart_items.create(cart_id: @current_cart.id, product_id: params[:id], quantity: 1)
@@ -61,7 +60,6 @@ class ProductsController < ApplicationController
   end
 
   def remove_single_item_from_cart
-    find_current_cart
     item = @current_cart.cart_items.find_by(product_id: params[:id])
     if item.quantity == 1
       remove_product_from_cart

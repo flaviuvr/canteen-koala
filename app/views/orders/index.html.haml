@@ -1,0 +1,9 @@
+- @orders.to_a.reverse.to_h.each do |order, status|
+  = order.created_at
+  -if status
+    Handled
+  - else
+    Pending
+  - if current_user.admin? && !order.handled_by_admin
+    = link_to 'Handle Order', handle_order_order_path(order.id), method: :post
+  %br

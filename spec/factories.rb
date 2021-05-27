@@ -1,4 +1,9 @@
 FactoryBot.define do
+  factory :order do
+    cart { nil }
+    handled_by_admin { false }
+  end
+
   factory :cart_item do
     cart { nil }
     product { nil }

@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
     cart = Cart.where('user_id = ? AND placed_order = ?', current_user.id, false).first
     return @current_cart ||= cart unless cart.nil?
 
-    @current_cart = Cart.create(user_id: current_user.id, handled: false) unless cart.nil?
+    @current_cart = Cart.create(user_id: current_user.id)
   end
 end

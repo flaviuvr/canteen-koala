@@ -19,8 +19,16 @@ Rails.application.routes.draw do
 
   resources :carts, only: :index do
     post :remove_cart_items, on: :collection
+    post :place_order, on: :collection
   end
 
   resources :account_activations, only: :edit
   resources :password_resets, only: %i[new create edit update]
+
+  resources :orders, only: %i[index show] do
+    post :handle_order, on: :member
+  end
+
+  post '/orders', to: 'orders#handle_order'
+
 end

@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :find_current_cart, only: %i[index remove_cart_items update_price]
+  before_action :find_current_cart
   before_action :find_cart_products, only: :index
   before_action :update_price, only: :index
 
@@ -31,5 +31,12 @@ class CartsController < ApplicationController
       quantity = prod.quantity
       @products[product] = quantity
     end
+  end
+
+  def place_order
+    Order.create(cart_id: @current_cart.id)
+    @current_cart.update_attribute(:placed_order, true)
+
+    redirect_to carts_path
   end
 end

@@ -29,7 +29,7 @@
 
   - unless @products.nil?
     .button.order-button
-      = link_to 'Place order', '#'
+      = link_to 'Place order', place_order_carts_path, method: :post
 
   %h2.total
     Total:
