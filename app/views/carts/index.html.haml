@@ -8,24 +8,29 @@
   %h2.cart-title
     Welcome to your cart
   .cart-list
-    - @cart.each do |index, product|
+    - @products.each do |product, quantity|
       .cart-item
-        = cl_image_tag product['image_key']
+        = cl_image_tag product.image.key
         .item-details
           .item-data
             .item-title
-              = product['title']
+              = product.title
             .item-quantity
               x
-              = product['quantity']
+              = quantity
           .item-actions
-            - if product['quantity'] > 1
-              = link_to 'Remove one instance', remove_single_item_from_cart_product_path(index), method: :delete
-              = link_to 'Remove product', remove_product_from_cart_product_path(index), method: :delete
+            - if quantity > 1
+              = link_to 'Remove one instance', remove_single_item_from_cart_product_path(product.id), method: :delete
+              = link_to 'Remove product', remove_product_from_cart_product_path(product.id), method: :delete
             - else
-              = link_to 'Remove product', remove_product_from_cart_product_path(index), method: :delete
+              = link_to 'Remove product', remove_product_from_cart_product_path(product.id), method: :delete
 
   = link_to 'Remove all items', remove_cart_items_carts_path, method: :post
+
+  - unless @products.nil?
+    .button.order-button
+      = link_to 'Place order', '#'
+
   %h2.total
     Total:
     .price

@@ -1,10 +1,10 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
   before_action :check_logged_user, only: :add_to_cart
+  before_action :find_current_cart, only: %i[add_to_cart remove_single_item_from_cart remove_product_from_cart]
 
   def index
     @products = Product.all
-    @cart = session[:cart]
 
     redirect_to home_path
   end
@@ -49,32 +49,37 @@ class ProductsController < ApplicationController
   end
 
   def add_to_cart
-    product = Product.find(params[:id])
-    if session[:cart][params[:id]].nil?
-      session[:cart][params[:id]] = { title: product.title, image_key: product.image.key, quantity: 1 }
+    find_current_cart
+    item = @current_cart.cart_items.find_by(product_id: params[:id])
+    if item.nil?
+      @current_cart.cart_items.create(cart_id: @current_cart.id, product_id: params[:id], quantity: 1)
     else
-      session[:cart][params[:id]]['quantity'] += 1
+      item.update_attribute(:quantity, item.quantity + 1)
     end
 
     redirect_to carts_path
   end
 
   def remove_single_item_from_cart
-    if session[:cart][params[:id]]['quantity'] == 1
+    find_current_cart
+    item = @current_cart.cart_items.find_by(product_id: params[:id])
+    if item.quantity == 1
       remove_product_from_cart
     else
-      session[:cart][params[:id]]['quantity'] -= 1
+      item.update_attribute(:quantity, item.quantity - 1)
 
       redirect_to carts_path
     end
-
   end
 
   def remove_product_from_cart
-    session[:cart].delete(params[:id])
+    item = @current_cart.cart_items.find_by(product_id: params[:id])
+    item.destroy
 
     redirect_to carts_path
   end
+
+
 
   private
 
