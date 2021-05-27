@@ -1,9 +1,27 @@
-- @orders.to_a.reverse.to_h.each do |order, status|
-  = order.created_at
-  -if status
-    Handled
-  - else
-    Pending
-  - if current_user.admin? && !order.handled_by_admin
-    = link_to 'Handle Order', handle_order_order_path(order.id), method: :post
-  %br
+%body.cart-body
+  .title-logo
+    = link_to home_path do
+      %span.first-word
+        Canteen
+      %span.second-word
+        Koala
+  %h2.cart-title
+    Orders
+  .cart-list
+    - @orders.to_a.reverse.to_h.each do |id, order|
+      .cart-item
+        .item-details
+          .item-data
+            .item-title
+            = order[:user_name]
+            %br
+            = order[:date]
+            .item-quantity
+
+              -if order[:status]
+                Handled
+              - else
+                Pending
+          .item-actions
+            - if current_user.admin? && !order[:status]
+              = link_to 'Handle Order', handle_order_order_path(id), method: :post

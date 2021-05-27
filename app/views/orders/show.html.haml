@@ -1,5 +1,29 @@
-- @order_items.values.each do |item|
-   = item[:title]
-   = item[:description]
-   = item[:price]
-   = item[:quantity]
+%body.cart-body
+  .title-logo
+    = link_to home_path do
+      %span.first-word
+        Canteen
+      %span.second-word
+        Koala
+  %h2.cart-title
+    Order Details
+  .cart-list
+    - @order_items.values.each do |item|
+      .cart-item
+        = cl_image_tag item[:image]
+        .item-details
+          .item-data
+            .item-title
+              = item[:title]
+            .item-quantity
+              x
+              = item[:quantity]
+  .status
+    Status:
+    = @order.handled_by_admin ? 'Completed' : 'Pending'
+
+  %h2.total
+    Total:
+    .price
+      = @price
+      $

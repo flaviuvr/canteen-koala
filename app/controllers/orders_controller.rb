@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :find_user_orders, only: %i[index show]
   before_action :find_order_items, only: :show
+  before_action :find_order_price, only: :show
 
   def index
     find_all_orders if current_user.admin?
@@ -14,7 +15,8 @@ class OrdersController < ApplicationController
 
     order_carts.each do |cart|
       current_order = Order.where('cart_id = ?', cart.id).last
-      @orders[current_order] = current_order.handled_by_admin
+      user = User.find(Cart.find(current_order.cart_id).user_id)
+      insert_order_info(current_order, user)
     end
   end
 
@@ -23,8 +25,16 @@ class OrdersController < ApplicationController
 
     order_carts.each do |cart|
       current_order = Order.where('cart_id = ?', cart.id).last
-      @orders[current_order] = current_order.handled_by_admin
+      user = User.find(Cart.find(current_order.cart_id).user_id)
+      insert_order_info(current_order, user)
     end
+  end
+
+  def insert_order_info(order, user)
+    @orders[order.id] = {}
+    @orders[order.id][:user_name] = user.name
+    @orders[order.id][:date] = order.created_at
+    @orders[order.id][:status] = order.handled_by_admin
   end
 
   def find_order_items
@@ -53,5 +63,14 @@ class OrdersController < ApplicationController
     order.update_attribute(:handled_by_admin, true)
 
     redirect_to orders_path
+  end
+
+  def find_order_price
+    price = 0
+    @order_items.each do |id, product|
+      prod = Product.find(id)
+      price += prod.price * product[:quantity]
+    end
+    @price = price
   end
 end
