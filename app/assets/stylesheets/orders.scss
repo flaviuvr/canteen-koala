@@ -1,4 +1,75 @@
-.status{
+$font-stack: Poppins, sans-serif;
+$light-color: #fbfef9;
+$primary-color: #1b2021;
+$secondary-color: #656a77;
+$accent-color: #be0d5d;
+
+.orders-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .order-labels {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80%;
+    font-weight: 700;
+    font-size: large;
+    margin-bottom: 1rem;
+  }
+
+  .order-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: column;
+    width: 80%;
+    grid-gap: 1rem;
+
+    .true {
+      grid-column: 2;
+    }
+
+    .false {
+      grid-column: 1;
+    }
+
+    .order-details {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 1rem 0;
+
+      border-radius: 8px;
+      box-shadow: 0 0 5px 2px #c0c0c0;
+      margin-bottom: 1rem;
+
+      .order-data {
+        padding-left: 1rem;
+
+        .order-user {
+          font-weight: 700;
+        }
+      }
+
+      .order-status-action {
+        display: flex;
+        flex-direction: column;
+        padding-right: 1rem;
+
+        .order-status {
+          color: $accent-color;
+          font-weight: 700;
+        }
+      }
+    }
+
+  }
+}
+
+.status {
   font-weight: 700;
   font-size: x-large;
 }

@@ -34,9 +34,9 @@ class CartsController < ApplicationController
   end
 
   def place_order
-    Order.create(cart_id: @current_cart.id)
+    order = Order.create!(cart_id: @current_cart.id)
     @current_cart.update_attribute(:placed_order, true)
 
-    redirect_to carts_path
+    redirect_to order_path(order.id)
   end
 end

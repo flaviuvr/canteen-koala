@@ -1,27 +1,35 @@
-%body.cart-body
+%body.orders-body
   .title-logo
     = link_to home_path do
       %span.first-word
         Canteen
       %span.second-word
         Koala
-  %h2.cart-title
+  %h2.orders-title
     Orders
-  .cart-list
+  .order-labels
+    .pending-label
+      Pending
+    .handled-label
+      Handled
+  .order-grid
     - @orders.to_a.reverse.to_h.each do |id, order|
-      .cart-item
-        .item-details
-          .item-data
-            .item-title
-            = order[:user_name]
-            %br
-            = order[:date]
-            .item-quantity
-
+      .order-item{class: "#{order[:status]}"}
+        .order-details
+          = link_to order_path(id) do
+            .order-data
+              .order-user
+                = order[:user_name]
+              .order-date
+                = time_ago_in_words(order[:date]).capitalize!
+                ago
+          .order-status-action
+            .order-status
               -if order[:status]
                 Handled
               - else
                 Pending
-          .item-actions
-            - if current_user.admin? && !order[:status]
-              = link_to 'Handle Order', handle_order_order_path(id), method: :post
+
+            .order-action
+              - if current_user.admin? && !order[:status]
+                = link_to 'Handle Order', handle_order_order_path(id), method: :post
