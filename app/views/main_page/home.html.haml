@@ -111,10 +111,11 @@
             .button.cart-button
               = link_to 'Add to cart', add_to_cart_product_path(product.id), method: :post
 
-      .card
-        .add-card
-          = link_to new_product_path do
-            .image
-              = image_tag 'add.png', alt: 'add-image'
-            .title
-              Add a new dish
+      - if current_user&.admin?
+        .card
+          .add-card
+            = link_to new_product_path do
+              .image
+                = image_tag 'add.png', alt: 'add-image'
+              .title
+                Add a new dish

@@ -1,4 +1,19 @@
 FactoryBot.define do
+  factory :order do
+    cart { nil }
+    handled_by_admin { false }
+  end
+
+  factory :cart_item do
+    cart { nil }
+    product { nil }
+    quantity { 1 }
+  end
+
+  factory :cart do
+    user { nil }
+  end
+
   factory :user do
     name  { 'User test' }
     email { 'user@test.org' }
